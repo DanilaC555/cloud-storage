@@ -1,0 +1,49 @@
+1)
+ЛОГИ ДЛЯ ОТЛАДКИ В РОУТИНГЕ
+echo "<pre>";
+echo "Искомый URL: \"$requestUrl\"\n";
+echo "Доступные маршруты:\n";
+print_r($this->routes);
+echo "</pre>";
+
+2)
+SQL=> {
+    таблица пользователей
+    CREATE TABLE `users` (
+      `id` INT(11) NOT NULL AUTO_INCREMENT,
+      `email` VARCHAR(255) NOT NULL,
+      `password` VARCHAR(255) NOT NULL,
+      `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      `role` ENUM('user','admin') NOT NULL DEFAULT 'user',
+      PRIMARY KEY (`id`)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+    таблица файлов
+    CREATE TABLE files (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        user_id INT NOT NULL,
+        original_name VARCHAR(255) NOT NULL,
+        encrypted_name VARCHAR(255) NOT NULL,
+        file_path VARCHAR(255) NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+    );
+
+    таблица чтобы хранить доступы
+    CREATE TABLE file_access (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    file_id INT NOT NULL,
+    user_id INT NOT NULL,
+    FOREIGN KEY (file_id) REFERENCES files(id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+
+    Таблица связывает files.id с users.id
+    Если файл удалён -> все доступы тоже удаляются
+  );
+}
+
+3)
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /index.php [L]

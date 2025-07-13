@@ -1,0 +1,514 @@
+html, body {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  display: flex;
+  margin: 0px;
+  min-width: 320px;
+  font-family: "Muller", sans-serif;
+  font-weight: 400;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+h1, h2, h3, ul, li, p {
+  margin: 0;
+  padding: 0;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.list-reset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.btn-reset {
+  padding: 0;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1210px;
+  padding: 0 50px;
+  width: 100%;
+}
+  
+.title{
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+/* logger */
+
+.log-error {
+  color: red;
+}
+
+.log-warning {
+  color: orange;
+}
+
+.log-info {
+  color: green;
+}
+
+/* logger */
+
+/* header */
+
+.header__container {
+    margin: 0 auto;
+    max-width: 1210px;
+    padding: 25px 50px;
+    width: 100%;
+}
+
+.header__title {
+    margin-right: auto;
+}
+
+.header {
+    background: #7b5ff8;
+    color: white;
+}
+
+.nav_menu {
+    gap: 10px;
+}
+
+.nav_menu a {
+    color: white;
+    text-decoration: none;
+}
+
+/* header */
+
+
+/* main */
+
+.main {
+  flex: 1; 
+}
+
+.main__container{
+    padding: 5%
+}
+
+.error {
+  color: red;
+  padding-top: 10px;
+}
+
+.dashboard__title {
+  padding: 5px;
+}
+
+.main__wrapper{
+  flex-direction: column;
+}
+
+.main__wrapper-content-box {
+  padding: 10px 10px 10px 10px;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+.delete-btn {
+  max-width: 85px;
+  background-color: red;
+  border: 0px;
+  padding: 5px;
+  color: white;
+  font-size: 14px;
+}
+
+.rename-btn {
+  max-width: 85px;
+  background-color: green;
+  border: 0px;
+  padding: 5px;
+  color: white;
+  font-size: 14px;
+}
+
+.save-btn {
+  max-width: 85px;
+  background-color: rgb(1, 175, 255);
+  border: 0px;
+  padding: 5px;
+  color: white;
+  font-size: 14px;
+}
+
+.access-btn {
+  max-width: 100px;
+  background-color: rgb(153, 1, 255);
+  border: 0px;
+  padding: 5px;
+  color: white;
+  font-size: 14px;
+}
+
+.access-list-btn {
+  max-width: 120px;
+  background-color: rgb(153, 1, 255);
+  border: 0px;
+  padding: 5px;
+  color: white;
+  font-size: 14px;
+}
+
+.list__files{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.li-file{
+  display: grid;
+  grid-template-columns: 220px auto auto auto auto auto;
+  align-items: center;
+  gap: 10px;
+  padding: 15px;
+  outline: 1px solid #ccc;
+}
+
+.access-control {
+  margin-bottom: 40px;
+}
+
+.tiitle_shared {
+  margin-bottom: 30px;
+}
+
+/* логин и регистрация */
+
+.login-register-title {
+  margin-bottom: 20px;
+}
+
+.login-register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.login-register-input {
+  padding: 10px;
+  border: 0px;
+  outline: 2px solid #7b5ff8;
+  border-radius: 10px;
+  color: #7b5ff8;
+  font-size: 16px;
+}
+
+.login-register-input::placeholder {
+  color: #7b5ff8;
+}
+
+.login-register-btn {
+  border: 0px;
+  padding: 10px;
+  outline: 2px solid #7b5ff8;
+  border-radius: 10px;
+  color: #7b5ff8;
+  font-size: 16px;
+}
+
+/* Таблица пользователей */
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.users-table th,
+.users-table td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.users-table th {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+.users-table tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.users-table tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* Обертка для таблицы, чтобы добавить скроллинг при переполнении */
+#usersContainer {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+/* Стили для модального окна */
+@keyframes animationModalWindow {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.modules {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+  animation: animationModalWindow 0.3s ease-in-out;
+}
+
+.modules__content {
+  position: relative;
+  margin: 15% auto;
+  background-color: #fff;
+  padding: 20px;
+  width: 80%;
+  max-width: 450px;
+  border-radius: 4px;
+}
+
+.modules__close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modules__form {
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center
+}
+
+/* стили для модального окна загрузки файллов */
+
+.container__btn-add {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #7b5ff8;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.modules__form-button-save-contact {
+  width: 180px;
+  padding: 14px 30px;
+  background-color: #7b5ff8;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.modules__form-button-save-contact:hover {
+  background-color: #B89EFF;
+}
+
+.modules__form-button-cansel {
+  background: none;
+  border: none;
+  margin-left: 10px;
+  font-size: 14px;
+  color: #7b5ff8;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.modules__form-input {
+  max-width: 300px;
+  cursor: pointer;
+  border: 0px;
+  color: #7b5ff8;
+  transition: color 0.3s ease-in-out;
+}
+
+.modules__form-input:hover {
+  color: #4200f8;
+  border: 0px;
+  outline: 0px;
+}
+
+.modules__form-input:active {
+  border: 0px;
+  outline: 0px;
+}
+
+.modules__form-input:focus {
+  border: 0px;
+  outline: 0px;
+}
+
+.label {
+  padding: 5px;
+  font-size: 16px;
+  border-radius: 5px;
+  background-color: #7b5ff8;
+  color: #fff;
+  outline: 1px solid #7b5ff8;
+}
+
+.label-password {
+  font-size: 14px;
+}
+
+.modules__title {
+  margin-bottom: 20px;
+}
+
+.form__wrapper {
+  background-color: #fff;
+  outline: 3px solid #7b5ff8;
+  border-radius: 5px;
+  gap: 10px;
+  display: flex;
+}
+
+/* поддтверждение */
+
+.confirm-message {
+  margin-bottom: 20px;
+}
+
+.file-name {
+  color: #7b5ff8;
+}
+
+.user-email {
+  color: #7b5ff8;
+}
+
+.access-confirmations {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+}
+
+.access-confirmations-box-one {
+  margin-bottom: 10px;
+}
+
+/* поддтверждение */
+
+/* список досутпа */
+
+.shared__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.shared__item {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  gap: 15px;
+  color: #7b5ff8;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.shared__desrc {
+  padding-top: 8px;
+}
+
+.delete-btn-access {
+  padding: 10px;
+  background-color: red;
+  border: 0px;
+  color: white;
+  font-size: 14px;
+}
+
+.shared__item:hover {
+  color: #4200f8;
+  border: 0px;
+  outline: 0px;
+}
+
+.shared__item:active {
+  border: 0px;
+  outline: 0px;
+}
+
+.shared__item:focus {
+  border: 0px;
+  outline: 0px;
+}
+
+/* список досутпа */
+
+/* админ */
+
+.actions-cell {
+  display: flex;
+  gap: 30px;
+}
+
+/* main */
+
+
+/* footer */
+
+.footer {
+    justify-content: center;
+    background: #7b5ff8;
+    color: white;
+    padding: 10px;
+    width: 100%;
+}
+
+/* footer */

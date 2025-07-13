@@ -1,0 +1,19 @@
+{
+    "name": "inc/cloud-storage",
+    "description": "descr",
+    "autoload": {
+        "psr-4": {
+            "Core\\": "Core/",
+            "App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Danila Cheshuin",
+            "email": "danila.supreme@bk.ru"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "*"
+    }
+}
